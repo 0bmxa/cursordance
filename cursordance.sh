@@ -26,13 +26,26 @@ function moveCursorLeft {
     echo -n "\e[${lines}D"
 }
 
+function moveCursorTo {
+    local x=$1 y=$2
+    # echo -n "\e[${y};${x}H"
+    echo -n "\e[${y};${x}f"
+}
+
+function centerCursor {
+    let midX=${COLUMNS}/2
+    let midY=${LINES}/2
+    moveCursorTo $midX $midY
+}
+
 function whiteBlock {
     local BG_WHITE='\e[48;5;231m'
     local RESET='\e[0m'
-    printf "${BG_WHITE} ${RESET}" # TODO: RESET not defined
+    printf "${BG_WHITE} ${RESET}"
 }
 
 saveCursor
+centerCursor
 
 while true; do
     let num=${RANDOM}%4
@@ -55,7 +68,7 @@ while true; do
         whiteBlock;
         ;;
     esac
-    sleep .1
+    sleep .02
 done
 
 restoreCursor
