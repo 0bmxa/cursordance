@@ -48,23 +48,24 @@ saveCursor
 centerCursor
 
 while true; do
-    let num=${RANDOM}%4
-    case "$num" in
+    let direction=${RANDOM}%4
+    case "$direction" in
     0)
-        moveCursorUp 1
+        moveCursorUp $(( ${RANDOM} % 2 + 1 ))
         whiteBlock
         moveCursorLeft 1
         ;;
     1)
-        moveCursorDown 1
+        moveCursorDown $(( ${RANDOM} % 2 + 1 ))
         whiteBlock
         moveCursorLeft 1
         ;;
     2)
+        moveCursorRight $(( ${RANDOM} % 2 ))
         whiteBlock
         ;;
     3)
-        moveCursorLeft 2
+        moveCursorLeft $(( ${RANDOM} % 2 + 2 ))
         whiteBlock;
         ;;
     esac

@@ -4,8 +4,8 @@ This draws white blocks all over your terminal.
 
 ### Caution
 
-Your terminal might get a bit unreadable.
-Maybe open a new one to try this our.
+Your terminal might become a bit unreadable.
+Maybe open a new one to try this out.
 
 ### Requirements
 
